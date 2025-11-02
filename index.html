@@ -4,33 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vivenza — Tu salud, en tus manos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #4CAF50;
       --accent: #FF9800;
-      --bg: #f4f4f4;
+      --bg-gradient: linear-gradient(135deg, #f0f4f8, #e0f7fa);
+      --card-bg: #ffffff;
       --text: #333;
-      --card-bg: #fff;
+    }
+    * {
+      box-sizing: border-box;
     }
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--bg);
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-gradient);
       color: var(--text);
+      animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     header {
       background: var(--primary);
       color: white;
       padding: 3rem 1rem;
       text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    header img {
+      width: 100px;
+      margin-bottom: 1rem;
     }
     header h1 {
       font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      margin: 0;
     }
     header p {
       font-size: 1.2rem;
       font-weight: 300;
+      margin-top: 0.5rem;
     }
     .section {
       max-width: 1000px;
@@ -44,9 +59,13 @@
     .card {
       background: var(--card-bg);
       padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin: 1rem 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      margin: 1.5rem 0;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
     }
     ul {
       padding-left: 1.2rem;
@@ -57,7 +76,7 @@
       margin-top: 1rem;
     }
     th, td {
-      border: 1px solid #ccc;
+      border: 1px solid #ddd;
       padding: 0.75rem;
       text-align: left;
     }
@@ -69,6 +88,23 @@
       border-left: 5px solid var(--accent);
       padding: 1rem;
       margin-top: 1rem;
+    }
+    .cta {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .cta a {
+      background: var(--accent);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
+    }
+    .cta a:hover {
+      background: #e68900;
     }
     footer {
       background: #eee;
@@ -92,6 +128,7 @@
 <body>
 
   <header>
+    <img src="logo.png" alt="Vivenza Logo" />
     <h1>Vivenza</h1>
     <p>Tu salud, en tus manos</p>
   </header>
@@ -143,47 +180,8 @@
       <p><strong>Vivenza</strong> transforma el cuidado de la salud en una experiencia inteligente, accesible y preventiva. Permite registrar signos vitales, recibir alertas tempranas y acceder a consejos personalizados. Con una interfaz amigable y tecnología predictiva, Vivenza no solo monitorea, sino que anticipa. Porque tu salud merece estar un paso adelante.</p>
     </div>
 
-    <div class="card">
-      <h2>🧱 Tecnología</h2>
-      <ul>
-        <li><strong>Frontend:</strong> Flutter con localización bilingüe</li>
-        <li><strong>Backend:</strong> Firebase (Auth, Firestore, Cloud Messaging, Cloud Functions)</li>
-        <li><strong>Diseño:</strong> Figma con enfoque mobile-first</li>
-        <li><strong>Documentación:</strong> Word, PDF y Markdown</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>🖥️ Pantallas del Prototipo</h2>
-      <table>
-        <tr><th>Pantalla</th><th>Elementos clave</th></tr>
-        <tr><td>Bienvenida</td><td>Logo, frase “Tu salud, en tus manos”, botón “Comenzar”</td></tr>
-        <tr><td>Registro / Inicio</td><td>Datos personales, opción Google</td></tr>
-        <tr><td>Panel principal</td><td>Signos vitales, estado actual, botón “Registrar”</td></tr>
-        <tr><td>Alertas</td><td>Lista de alertas, botón “Contactar médico”</td></tr>
-        <tr><td>Recordatorios</td><td>Medicamentos y citas, botón “Agregar”</td></tr>
-        <tr><td>Consejos</td><td>Tips diarios, botón “Ver más”</td></tr>
-        <tr><td>Perfil</td><td>Datos personales, historial, configuración</td></tr>
-      </table>
-    </div>
-
-    <div class="card">
-      <h2>📦 Estado del Proyecto</h2>
-      <ul>
-        <li>✅ Prototipo visual completo en Figma</li>
-        <li>✅ Código base funcional en Flutter</li>
-        <li>✅ Backend configurado con Firebase</li>
-        <li>✅ Documentación profesional lista</li>
-        <li>🚀 Preparado para validación y presentación comercial</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>📬 Contacto</h2>
-      <p><strong>Mauricio Ferreyra</strong><br>
-      Líder de desarrollo y branding<br>
-      📧 <a href="mailto:mauricio@vivenza.app">mauricio@vivenza.app</a><br>
-      🌐 <a href="https://www.vivenza.app">www.vivenza.app</a></p>
+    <div class="cta">
+      <a href="mailto:mauricio@vivenza.app">📩 Contactar para demo o alianza</a>
     </div>
 
   </div>
